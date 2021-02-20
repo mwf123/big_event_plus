@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 导入 layui 的css样式 -->
+    <link rel="stylesheet" href="/bigevent-test-fe-static/assets/lib/layui/css/layui.css">
+    <!-- 导入自己的css样式 -->
+    <link rel="stylesheet" href="/bigevent-test-fe-static/assets/css/user/user.css">
+</head>
+
+<body>
+    <div class="layui-card">
+        <div class="layui-card-header">用户列表</div>
+        <div class="layui-card-body">
+            <table class="layui-table">
+                <colgroup>
+                    <col width="5%">
+                    <col width="20%">
+                    <col width="15%">
+                    <col width="15%">
+                    <col width="20%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>账号名称</th>
+                        <th>昵称</th>
+                        <th>邮箱</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <td>贤心</td>
+                        <td>2016-11-29</td>
+                        <td>人生就像是一场修行</td>
+                        <td>人生就像是一场修行</td>
+                        <td>
+                            <button type="button" class="layui-btn layui-btn-xs">编辑</button>
+                            <button type="button" class="layui-btn layui-btn-xs layui-btn-danger">删除</button>
+                            <button type="button" class="layui-btn layui-btn-xs layui-btn-normal">重置密码</button>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 导入模板引擎 -->
+    <script src="/bigevent-test-fe-static/assets/lib/template-web.js"></script>
+
+    <!-- 定义获取用户列表模板 -->
+    <script type="text/html" id="table-tpl">
+        {{each data}}
+            <tr>
+                <td>{{$value.id}}</td>
+                <td>{{$value.username}}</td>
+                <td>{{$value.nickname}}</td>
+                <td>{{$value.email}}</td>
+                <td>
+                    <button data-id="{{$value.Id}}" type="button" class="layui-btn layui-btn-xs">编辑</button>
+                    <button data-id="{{$value.id}}" type="button" class="layui-btn layui-btn-xs layui-btn-danger delete">删除</button>
+                    <button data-id="{{$value.id}}" type="button" class="layui-btn layui-btn-xs layui-btn-normal delete">重置密码</button>
+                </td>
+            </tr>
+        {{/each}}
+    </script>
+
+    <!-- 导入layui的js 文件 -->
+    <script src="/bigevent-test-fe-static/assets/lib/layui/layui.all.js"></script>
+    <!-- 导入 jQuery 的js文件 -->
+    <script src="/bigevent-test-fe-static/assets/lib/jquery.js"></script>
+    <!-- 引入 baseAPI 文件 -->
+    <!-- <script src="/bigevent-test-fe-static/assets/js/baseAPI.js"></script> -->
+    <!-- 导入自己的js文件 -->
+    <script src="/bigevent-test-fe-static/assets/js/user/user.js"></script>
+</body>
+
+</html>
