@@ -1,6 +1,5 @@
 $(function () {
     // 编辑用户
-    console.log('111');
     var form = layui.form
     // 获取用户id
     let id = new URLSearchParams(location.search).get('id')
@@ -8,7 +7,7 @@ $(function () {
     function loadUserInfo() {
         $.ajax({
             type: 'get',
-            url: 'http://localhost:8888/admin/users/' + id,
+            url: 'admin/users/' + id,
             success: function (res) {
                 if (res.status === 0) {
                     form.val('editForm', res.data)
@@ -26,7 +25,7 @@ $(function () {
         var fd = $(this).serialize()
         $.ajax({
             type: 'put',
-            url: 'http://localhost:8888/admin/users',
+            url: 'admin/users',
             data: fd,
             success: function (res) {
                 layer.msg(res.message)
