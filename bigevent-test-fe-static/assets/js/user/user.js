@@ -69,6 +69,7 @@ $(function () {
                 url: 'admin/users/' + id,
                 success: function (res) {
                     layer.msg(res.message)
+                    if ($('.layui-btn-danger').length == 1) pagenum--;
                     loadUserList({
                         // 页码：必须从1开始
                         pagenum: pagenum,
